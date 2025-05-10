@@ -21,8 +21,8 @@ def main():
     parser = argparse.ArgumentParser(
         description="Down files from raw or web pages.",
         epilog="""Note: It is EXTREMELY IMPORTANT that the URL of the raw file is ONLY THE CONTENT OF THE FILE, if there is anything else in it it will be corrupted when the file is executed. It can also be used to download web pages.\n
-    e. g. python3 rawdown.py -u https://raw.site.com/raw/file.sh -o raw_file.sh
-        rawdown -u https://raw.site.com/raw/file.sh -o raw_file.sh
+    e. g. python3 webdown.py -u https://raw.site.com/raw/file.sh -o raw_file.sh
+        webdown -u https://raw.site.com/raw/file.sh -o raw_file.sh
         """,
         formatter_class=argparse.RawTextHelpFormatter
     )
