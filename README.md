@@ -41,19 +41,19 @@ After installing, you can run the script from any directory by calling `webdown`
 ### Basic Command:
 
 ```bash
-webdown -u <URL> -o <output_filename>
+webdown <URL> <output_filename>
 ```
 
 ### Example 1: Download a raw file (e.g., shell script):
 
 ```bash
-webdown -u https://raw.githubusercontent.com/someuser/somerepo/main/script.sh -o myscript.sh
+webdown https://raw.githubusercontent.com/someuser/somerepo/main/script.sh myscript.sh
 ```
 
 ### Example 2: Download a webpage:
 
 ```bash
-webdown -u https://example.com/page.html -o saved_page.html
+webdown https://example.com/page.html saved_page.html
 ```
 
 ### Arguments:
@@ -73,7 +73,7 @@ It is EXTREMELY IMPORTANT that the URL provided is the **raw content** of the fi
 ## Example of Usage
 
 ```bash
-webdown -u https://raw.githubusercontent.com/username/repository/branch/file.sh -o downloaded_file.sh
+webdown https://raw.githubusercontent.com/username/repository/branch/file.sh downloaded_file.sh
 ```
 
 ---
