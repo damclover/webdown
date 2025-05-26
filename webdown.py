@@ -4,31 +4,31 @@ import requests
 import argparse
 
 def down_file(raw_link, o_file):
-
     try:
         res = requests.get(raw_link)
-        
         if res.status_code == 200:
             with open(o_file, "w") as file:
                 file.write(res.text)
-                
-        return print(f"\nSaved as {o_file}")
-        
+            print(f"\n[✓] Saved as {o_file}")
+        else:
+            print(f"[!] HTTP {res.status_code}: Failed to download.")
     except Exception as e:
-        print(f"Error: {e}")
+        print(f"[!] Error: {e}")
 
 def main():
     parser = argparse.ArgumentParser(
-        description="Down files from raw or web pages.",
-        epilog="""Note: It is EXTREMELY IMPORTANT that the URL of the raw file is ONLY THE CONTENT OF THE FILE, if there is anything else in it it will be corrupted when the file is executed. It can also be used to download web pages.\n
-    e. g. python3 webdown.py -u https://raw.site.com/raw/file.sh -o raw_file.sh
-        webdown -u https://raw.site.com/raw/file.sh -o raw_file.sh
-        """,
+        description="Download files from raw links or web pages.",
+        epilog="""\
+Note: The URL must point directly to raw content.
+Example:
+    webdown https://raw.site.com/raw/file.sh raw_file.sh
+    python3 webdown.py https://raw.site.com/raw/file.sh raw_file.sh
+    """,
         formatter_class=argparse.RawTextHelpFormatter
     )
-    
-    parser.add_argument("-u", "--url", help="Raw URL or URL page.", required=True)
-    parser.add_argument("-o", "--output", help="Name file for save.", required=True)
+
+    parser.add_argument("url", help="Raw URL or web page URL.")
+    parser.add_argument("output", help="Name of the file to save.")
 
     args = parser.parse_args()
     down_file(args.url, args.output)
